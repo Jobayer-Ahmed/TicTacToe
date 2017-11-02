@@ -10,7 +10,6 @@ $(document).ready(function() {
 	$(".cell").click(function() {
 		var slot = $(this).attr('id');
 		playerTurn(player, slot);
-		console.log(slot)
 	});
 
 	// Player Turn Function
@@ -22,23 +21,269 @@ $(document).ready(function() {
 			$('#'+id).text(player);
 			checkWin(turn, player);
 			if (game === false) {
-				AI();
-				checkWin(turn, computer);
+				checkWin();
+				minimax();
 			}
+		}
+	}
+
+	//minimax condition
+	function minimax() {
+		if ($("#4").text() === '') {
+			$("#4").text(computer);
+			checkWin();
+		} else if ($("#0").text() === computer && $("#1").text() === computer && $("#2").text() === '') {
+			$("#2").text(computer);
+			checkWin();
+		} else if ($("#0").text() === computer && $("#2").text() === computer && $("#1").text() === '') {
+			$("#1").text(computer);
+			checkWin();
+		} else if ($("#2").text() === computer && $("#1").text() === computer && $("#0").text() === '') {
+			$("#0").text(computer);
+			checkWin();
+		} else if ($("#2").text() === computer && $("#0").text() === computer && $("#1").text() === '') {
+			$("#1").text(computer);
+			checkWin();
+		} else if ($("#3").text() === computer && $("#4").text() === computer && $("#5").text() === '') {
+			$("#5").text(computer);
+			checkWin();
+		} else if ($("#3").text() === computer && $("#5").text() === computer && $("#4").text() === '') {
+			$("#4").text(computer);
+			checkWin();
+		} else if ($("#5").text() === computer && $("#4").text() === computer && $("#3").text() === '') {
+			$("#3").text(computer);
+			checkWin();
+		} else if ($("#5").text() === computer && $("#3").text() === computer && $("#4").text() === '') {
+			$("#4").text(computer);
+			checkWin();
+		} else if ($("#6").text() === computer && $("#7").text() === computer && $("#8").text() === '') {
+			$("#8").text(computer);
+			checkWin();
+		} else if ($("#6").text() === computer && $("#8").text() === computer && $("#7").text() === '') {
+			$("#7").text(computer);
+			checkWin();
+		} else if ($("#8").text() === computer && $("#7").text() === computer && $("#6").text() === '') {
+			$("#6").text(computer);
+			checkWin();
+		} else if ($("#8").text() === computer && $("#6").text() === computer && $("#7").text() === '') {
+			$("#7").text(computer);
+			checkWin();
+		} else if ($("#0").text() === computer && $("#3").text() === computer && $("#6").text() === '') {
+			$("#6").text(computer);
+			checkWin();
+		} else if ($("#0").text() === computer && $("#6").text() === computer && $("#3").text() === '') {
+			$("#3").text(computer);
+			checkWin();
+		} else if ($("#6").text() === computer && $("#3").text() === computer && $("#0").text() === '') {
+			$("#0").text(computer);
+			checkWin();
+		} else if ($("#6").text() === computer && $("#0").text() === computer && $("#3").text() === '') {
+			$("#3").text(computer);
+			checkWin();
+		} else if ($("#1").text() === computer && $("#4").text() === computer && $("#7").text() === '') {
+			$("#7").text(computer);
+			checkWin();
+		} else if ($("#1").text() === computer && $("#7").text() === computer && $("#4").text() === '') {
+			$("#4").text(computer);
+			checkWin();
+		} else if ($("#7").text() === computer && $("#4").text() === computer && $("#1").text() === '') {
+			$("#1").text(computer);
+			checkWin();
+		} else if ($("#7").text() === computer && $("#1").text() === computer && $("#4").text() === '') {
+			$("#4").text(computer);
+			checkWin();
+		} else if ($("#2").text() === computer && $("#5").text() === computer && $("#8").text() === '') {
+			$("#8").text(computer);
+			checkWin();
+		} else if ($("#2").text() === computer && $("#8").text() === computer && $("#5").text() === '') {
+			$("#5").text(computer);
+			checkWin();
+		} else if ($("#8").text() === computer && $("#5").text() === computer && $("#2").text() === '') {
+			$("#2").text(computer);
+			checkWin();
+		} else if ($("#8").text() === computer && $("#2").text() === computer && $("#5").text() === '') {
+			$("#5").text(computer);
+			checkWin();
+		} else if ($("#0").text() === computer && $("#4").text() === computer && $("#8").text() === '') {
+			$("#8").text(computer);
+			checkWin();
+		} else if ($("#0").text() === computer && $("#8").text() === computer && $("#4").text() === '') {
+			$("#4").text(computer);
+			checkWin();
+		} else if ($("#8").text() === computer && $("#4").text() === computer && $("#0").text() === '') {
+			$("#0").text(computer);
+			checkWin();
+		} else if ($("#8").text() === computer && $("#0").text() === computer && $("#4").text() === '') {
+			$("#4").text(computer);
+			checkWin();
+		} else if ($("#0").text() === computer && $("#1").text() === computer && $("#2").text() === '') {
+			$("#2").text(computer);
+			checkWin();
+		} else if ($("#6").text() === computer && $("#4").text() === computer && $("#2").text() === '') {
+			$("#2").text(computer);
+			checkWin();
+		} else if ($("#6").text() === computer && $("#2").text() === computer && $("#4").text() === '') {
+			$("#4").text(computer);
+			checkWin();
+		} else if ($("#2").text() === computer && $("#4").text() === computer && $("#6").text() === '') {
+			$("#6").text(computer);
+			checkWin();
+		} else if ($("#2").text() === computer && $("#6").text() === computer && $("#4").text() === '') {
+			$("#4").text(computer);
+			checkWin();
+		} else if ($("#0").text() === player && $("#1").text() === player && $("#2").text() === '') {
+			$("#2").text(computer);
+			checkWin();
+		} else if ($("#0").text() === player && $("#2").text() === player && $("#1").text() === '') {
+			$("#1").text(computer);
+			checkWin();
+		} else if ($("#2").text() === player && $("#1").text() === player && $("#0").text() === '') {
+			$("#0").text(computer);
+			checkWin();
+		} else if ($("#2").text() === player && $("#0").text() === player && $("#1").text() === '') {
+			$("#1").text(computer);
+			checkWin();
+		} else if ($("#3").text() === player && $("#4").text() === player && $("#5").text() === '') {
+			$("#5").text(computer);
+			checkWin();
+		} else if ($("#3").text() === player && $("#5").text() === player && $("#4").text() === '') {
+			$("#4").text(computer);
+			checkWin();
+		} else if ($("#5").text() === player && $("#4").text() === player && $("#3").text() === '') {
+			$("#3").text(computer);
+			checkWin();
+		} else if ($("#5").text() === player && $("#3").text() === player && $("#4").text() === '') {
+			$("#4").text(computer);
+			checkWin();
+		} else if ($("#6").text() === player && $("#7").text() === player && $("#8").text() === '') {
+			$("#8").text(computer);
+			checkWin();
+		} else if ($("#6").text() === player && $("#8").text() === player && $("#7").text() === '') {
+			$("#7").text(computer);
+			checkWin();
+		} else if ($("#8").text() === player && $("#7").text() === player && $("#6").text() === '') {
+			$("#6").text(computer);
+			checkWin();
+		} else if ($("#8").text() === player && $("#6").text() === player && $("#7").text() === '') {
+			$("#7").text(computer);
+			checkWin();
+		} else if ($("#0").text() === player && $("#3").text() === player && $("#6").text() === '') {
+			$("#6").text(computer);
+			checkWin();
+		} else if ($("#0").text() === player && $("#6").text() === player && $("#3").text() === '') {
+			$("#3").text(computer);
+			checkWin();
+		} else if ($("#6").text() === player && $("#3").text() === player && $("#0").text() === '') {
+			$("#0").text(computer);
+			checkWin();
+		} else if ($("#6").text() === player && $("#0").text() === player && $("#3").text() === '') {
+			$("#3").text(computer);
+			checkWin();
+		} else if ($("#1").text() === player && $("#4").text() === player && $("#7").text() === '') {
+			$("#7").text(computer);
+			checkWin();
+		} else if ($("#1").text() === player && $("#7").text() === player && $("#4").text() === '') {
+			$("#4").text(computer);
+			checkWin();
+		} else if ($("#7").text() === player && $("#4").text() === player && $("#1").text() === '') {
+			$("#1").text(computer);
+			checkWin();
+		} else if ($("#7").text() === player && $("#1").text() === player && $("#4").text() === '') {
+			$("#4").text(computer);
+			checkWin();
+		} else if ($("#2").text() === player && $("#5").text() === player && $("#8").text() === '') {
+			$("#8").text(computer);
+			checkWin();
+		} else if ($("#2").text() === player && $("#8").text() === player && $("#5").text() === '') {
+			$("#5").text(computer);
+			checkWin();
+		} else if ($("#8").text() === player && $("#5").text() === player && $("#2").text() === '') {
+			$("#2").text(computer);
+			checkWin();
+		} else if ($("#8").text() === player && $("#2").text() === player && $("#5").text() === '') {
+			$("#5").text(computer);
+			checkWin();
+		} else if ($("#0").text() === player && $("#4").text() === player && $("#8").text() === '') {
+			$("#8").text(computer);
+			checkWin();
+		} else if ($("#0").text() === player && $("#8").text() === player && $("#4").text() === '') {
+			$("#4").text(computer);
+			checkWin();
+		} else if ($("#8").text() === player && $("#4").text() === player && $("#0").text() === '') {
+			$("#0").text(computer);
+			checkWin();
+		} else if ($("#8").text() === player && $("#0").text() === player && $("#4").text() === '') {
+			$("#4").text(computer);
+			checkWin();
+		} else if ($("#0").text() === player && $("#1").text() === player && $("#2").text() === '') {
+			$("#2").text(computer);
+			checkWin();
+		} else if ($("#6").text() === player && $("#4").text() === player && $("#2").text() === '') {
+			$("#2").text(computer);
+			checkWin();
+		} else if ($("#6").text() === player && $("#2").text() === player && $("#4").text() === '') {
+			$("#4").text(computer);
+			checkWin();
+		} else if ($("#2").text() === player && $("#4").text() === player && $("#6").text() === '') {
+			$("#6").text(computer);
+			checkWin();
+		} else if ($("#2").text() === player && $("#6").text() === player && $("#4").text() === '') {
+			$("#4").text(computer);
+			checkWin();
+		} else {
+			AI();
+		}
+	}
+
+	// Wining Condition
+	function checkWin() {
+		if($('#0').text() === computer && $('#1').text() === computer && $('#2').text() === computer) {
+			game = true;
+			alert(computer + " wins!");
+		} else if($('#2').text() === computer && $('#4').text() === computer && $('#6').text() === computer) {
+			game = true;
+			alert(computer + " wins!");
+		} else if($('#0').text() === computer && $('#3').text() === computer && $('#6').text() === computer) {
+			game = true;
+			alert(computer + " wins!");
+		} else if($('#0').text() === computer && $('#4').text() === computer && $('#8').text() === computer) {
+			game = true;
+			alert(computer + " wins!");
+		} else if($('#1').text() === computer && $('#4').text() === computer && $('#7').text() === computer) {
+			game = true;
+			alert(computer + " wins!");
+		} else if($('#2').text() === computer && $('#5').text() === computer && $('#8').text() === computer) {
+			game = true;
+			alert(computer + " wins!");
+		} else if($('#3').text() === computer && $('#4').text() === computer && $('#5').text() === computer) {
+			game = true;
+			alert(computer + " wins!");
+		} else if($('#6').text() === computer && $('#7').text() === computer && $('#8').text() === computer) {
+			game = true;
+			alert(computer + " wins!");
+		}
+		else {
+			game = false;
 		}
 	}
 
 	// AI Turn Function
 	function AI() {
 		var token = false;
-		while(token===false && count !== 5) {
-			var random = (Math.random()*9).toFixed();
-			console.log(random)
-			var move = $("#"+random).text();
-			if (move==='') {
-				$("#"+random).text(computer);
-				token = true;
-				turn[random] = computer;
+		if ($('#0').text() === '') {
+			$('#0').text(computer)
+		} else {
+			while(token===false && count !== 5) {
+				var random = (Math.random()*8).toFixed();
+				console.log(random)
+				var move = $("#"+random).text();
+				if (move==='') {
+					$("#"+random).text(computer);
+					token = true;
+					turn[random] = computer;
+				} else {
+					console.log("ITS ELSE");
+				}
 			}
 		}
 	}
@@ -51,35 +296,5 @@ $(document).ready(function() {
 		count = 0;
 	});
 
-	// Wining Condition
-	function checkWin(turnArray, currentTurn) {
-		if(turnArray[0] === currentTurn && turnArray[1] === currentTurn && turnArray[2] === currentTurn) {
-			game = true;
-			alert(currentTurn + " wins!");
-		} else if(turnArray[2] === currentTurn && turnArray[4] === currentTurn && turnArray[6] === currentTurn) {
-			game = true;
-			alert(currentTurn + " wins!");
-		} else if(turnArray[0] === currentTurn && turnArray[3] === currentTurn && turnArray[6] === currentTurn) {
-			game = true;
-			alert(currentTurn + " wins!");
-		} else if(turnArray[0] === currentTurn && turnArray[4] === currentTurn && turnArray[8] === currentTurn) {
-			game = true;
-			alert(currentTurn + " wins!");
-		} else if(turnArray[1] === currentTurn && turnArray[4] === currentTurn && turnArray[7] === currentTurn) {
-			game = true;
-			alert(currentTurn + " wins!");
-		} else if(turnArray[2] === currentTurn && turnArray[5] === currentTurn && turnArray[8] === currentTurn) {
-			game = true;
-			alert(currentTurn + " wins!");
-		} else if(turnArray[3] === currentTurn && turnArray[4] === currentTurn && turnArray[5] === currentTurn) {
-			game = true;
-			alert(currentTurn + " wins!");
-		} else if(turnArray[6] === currentTurn && turnArray[7] === currentTurn && turnArray[8] === currentTurn) {
-			game = true;
-			alert(currentTurn + " wins!");
-		}
-		else {
-			game = false;
-		}
-	}
+	
 });
